@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    mc:Ignorable="d"
+    x:Class="SnakeApp.MainPage">
+    <StackLayout Spacing="0" >
+        <Grid WidthRequest="400" HeightRequest="400" ColumnSpacing="0" RowSpacing="0">
+            <Grid.GestureRecognizers>
+                <SwipeGestureRecognizer x:Name="leftSwipe" Direction="Left" Swiped="leftSwipe_Swiped" />
+                <SwipeGestureRecognizer x:Name="rightSwipe" Direction="Right" Swiped="rightSwipe_Swiped" />
+                <SwipeGestureRecognizer x:Name="upSwipte" Direction="Up" Swiped="upSwipte_Swiped" />
+                <SwipeGestureRecognizer x:Name="downSwipe" Direction="Down" Swiped="downSwipe_Swiped" />
+            </Grid.GestureRecognizers>
+            <BoxView WidthRequest="400" HeightRequest="400" Color="Black" />
+            <skia:SKCanvasView WidthRequest="400" HeightRequest="400" x:Name="CanvasView" PaintSurface="CanvasView_PaintSurface" />
+        </Grid>
+        <Label FontAttributes="Bold" Margin="10" FontSize="21" Text="{Binding Score, StringFormat='Score is {0}'}" />
+    </StackLayout>
+</ContentPage>
