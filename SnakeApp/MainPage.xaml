@@ -19,5 +19,24 @@
             <skia:SKCanvasView WidthRequest="400" HeightRequest="400" x:Name="CanvasView" PaintSurface="CanvasView_PaintSurface" />
         </Grid>
         <Label FontAttributes="Bold" Margin="10" FontSize="21" Text="{Binding Score, StringFormat='Score is {0}'}" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="1" Text="Up" x:Name="buttonUp" Clicked="buttonUp_Clicked" />
+            <Button Grid.Row="1" Grid.Column="1" Text="Down" x:Name="buttonDown" Clicked="buttonDown_Clicked" />
+            <Button Grid.Row="1" Grid.Column="0" Text="Left" x:Name="buttonLeft" Clicked="buttonLeft_Clicked" />
+            <Button Grid.Row="1" Grid.Column="2" Text="Right" x:Name="buttonRight" Clicked="buttonRight_Clicked" />
+
+        </Grid>
+           
     </StackLayout>
 </ContentPage>

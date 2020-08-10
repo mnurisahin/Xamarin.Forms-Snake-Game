@@ -56,7 +56,7 @@ namespace SnakeApp
             velocityY = 0;
             continueTimer = true;
 
-            Device.StartTimer(TimeSpan.FromMilliseconds(50), TimerElapsed);
+            Device.StartTimer(TimeSpan.FromMilliseconds(1000), TimerElapsed);
         }
 
         private bool TimerElapsed()
@@ -108,6 +108,7 @@ namespace SnakeApp
                 tailSize++;
                 appleX = RandomNumber(0, tileCount);
                 appleY = RandomNumber(0, tileCount);
+                Score++;
             }
         }
 
@@ -153,38 +154,22 @@ namespace SnakeApp
 
         void leftSwipe_Swiped(System.Object sender, Xamarin.Forms.SwipedEventArgs e)
         {
-            if(velocityX != 1)
-            {
-                this.velocityX = -1;
-                this.velocityY = 0;
-            }
+            Left();
         }
 
         void rightSwipe_Swiped(System.Object sender, Xamarin.Forms.SwipedEventArgs e)
         {
-            if (velocityX != -1)
-            {
-                this.velocityX = 1;
-                this.velocityY = 0;
-            }
+            Right();
         }
 
         void upSwipte_Swiped(System.Object sender, Xamarin.Forms.SwipedEventArgs e)
         {
-            if (velocityY != 1)
-            {
-                this.velocityX = 0;
-                this.velocityY = -1;
-            }
+            Up();
         }
 
         void downSwipe_Swiped(System.Object sender, Xamarin.Forms.SwipedEventArgs e)
         {
-            if (velocityX != -1)
-            {
-                this.velocityX = 0;
-                this.velocityY = 1;
-            }
+            Down();
         }
 
         // Instantiate random number generator.  
@@ -196,6 +181,61 @@ namespace SnakeApp
             return _random.Next(min, max);
         }
 
+        void buttonUp_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Up();
+        }
+
+        void buttonDown_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Down();
+        }
+
+        void buttonLeft_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Left();
+        }
+
+        void buttonRight_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Right();
+        }
+
+        private void Left()
+        {
+            if (velocityX != 1)
+            {
+                this.velocityX = -1;
+                this.velocityY = 0;
+            }
+        }
+
+        private void Right()
+        {
+            if (velocityX != -1)
+            {
+                this.velocityX = 1;
+                this.velocityY = 0;
+            }
+        }
+
+        private void Up()
+        {
+            if (velocityY != 1)
+            {
+                this.velocityX = 0;
+                this.velocityY = -1;
+            }
+        }
+
+        private void Down()
+        {
+            if (velocityX != -1)
+            {
+                this.velocityX = 0;
+                this.velocityY = 1;
+            }
+        }
     }
 
     public class Trail
